@@ -45,6 +45,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ammunition.cs" />
+    <Compile Include="Armor.cs" />
+    <Compile Include="Bioware.cs" />
+    <Compile Include="Cyberdeck.cs" />
+    <Compile Include="Cyberware.cs" />
+    <Compile Include="Drone.cs" />
+    <Compile Include="Equipment.cs" />
+    <Compile Include="Explosives.cs" />
+    <Compile Include="FormSelectItemType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSelectItemType.Designer.cs">
+      <DependentUpon>FormSelectItemType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle.cs" />
+    <Compile Include="Weapon.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -57,6 +73,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormSelectItemType.resx">
+      <DependentUpon>FormSelectItemType.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -65,6 +84,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -78,6 +98,120 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\add.png" />
+    <Content Include="Resources\add1.png" />
+    <None Include="Resources\world_go1.png" />
+    <None Include="Resources\user_go1.png" />
+    <None Include="Resources\user_add1.png" />
+    <None Include="Resources\tag_red1.png" />
+    <None Include="Resources\table_edit1.png" />
+    <None Include="Resources\shield_add1.png" />
+    <None Include="Resources\server_lightning1.png" />
+    <None Include="Resources\printer1.png" />
+    <None Include="Resources\possession1.png" />
+    <None Include="Resources\possessinanimate1.png" />
+    <None Include="Resources\plugin_add1.png" />
+    <None Include="Resources\pencil1.png" />
+    <None Include="Resources\page_paste1.png" />
+    <None Include="Resources\page_copy1.png" />
+    <None Include="Resources\page1.png" />
+    <None Include="Resources\note_edit1.png" />
+    <None Include="Resources\medal_gold_add1.png" />
+    <None Include="Resources\link_go1.png" />
+    <None Include="Resources\link_delete1.png" />
+    <None Include="Resources\link_add1.png" />
+    <None Include="Resources\link1.png" />
+    <None Include="Resources\house_edit1.png" />
+    <None Include="Resources\house1.png" />
+    <None Include="Resources\folder_page1.png" />
+    <None Include="Resources\export1.png" />
+    <None Include="Resources\emoticon_waii1.png" />
+    <None Include="Resources\emoticon_unhappy1.png" />
+    <None Include="Resources\emoticon_tongue1.png" />
+    <None Include="Resources\emoticon_surprised1.png" />
+    <None Include="Resources\emoticon_evilgrin1.png" />
+    <None Include="Resources\disk1.png" />
+    <None Include="Resources\die1.png" />
+    <None Include="Resources\delete1.png" />
+    <None Include="Resources\computer_add1.png" />
+    <None Include="Resources\cog_edit1.png" />
+    <None Include="Resources\car_go1.png" />
+    <None Include="Resources\car_add1.png" />
+    <None Include="Resources\camera_add1.png" />
+    <None Include="Resources\building_edit1.png" />
+    <None Include="Resources\briefcase_edit1.png" />
+    <None Include="Resources\briefcase_add1.png" />
+    <None Include="Resources\brick_go1.png" />
+    <None Include="Resources\brick_delete1.png" />
+    <None Include="Resources\brick_add1.png" />
+    <None Include="Resources\bomb1.png" />
+    <None Include="Resources\basket_edit1.png" />
+    <None Include="Resources\basket_add1.png" />
+    <None Include="Resources\award_star2_add1.png" />
+    <None Include="Resources\award_star_add1.png" />
+    <None Include="Resources\asterisk_orange1.png" />
+    <None Include="Resources\arrow_undo1.png" />
+    <None Include="Resources\arrow_redo1.png" />
+    <None Include="Resources\arrow_join1.png" />
+    <None Include="Resources\arrow_divide1.png" />
+    <None Include="Resources\add11.png" />
+    <None Include="Resources\add2.png" />
+    <Content Include="Resources\arrow_divide.png" />
+    <Content Include="Resources\arrow_join.png" />
+    <Content Include="Resources\arrow_redo.png" />
+    <Content Include="Resources\arrow_undo.png" />
+    <Content Include="Resources\asterisk_orange.png" />
+    <Content Include="Resources\award_star2_add.png" />
+    <Content Include="Resources\award_star_add.png" />
+    <Content Include="Resources\basket_add.png" />
+    <Content Include="Resources\basket_edit.png" />
+    <Content Include="Resources\bomb.png" />
+    <Content Include="Resources\brick_add.png" />
+    <Content Include="Resources\brick_delete.png" />
+    <Content Include="Resources\brick_go.png" />
+    <Content Include="Resources\briefcase_add.png" />
+    <Content Include="Resources\briefcase_edit.png" />
+    <Content Include="Resources\building_edit.png" />
+    <Content Include="Resources\camera_add.png" />
+    <Content Include="Resources\car_add.png" />
+    <Content Include="Resources\car_go.png" />
+    <Content Include="Resources\cog_edit.png" />
+    <Content Include="Resources\computer_add.png" />
+    <Content Include="Resources\delete.png" />
+    <Content Include="Resources\die.png" />
+    <Content Include="Resources\disk.png" />
+    <Content Include="Resources\emoticon_evilgrin.png" />
+    <Content Include="Resources\emoticon_surprised.png" />
+    <Content Include="Resources\emoticon_tongue.png" />
+    <Content Include="Resources\emoticon_unhappy.png" />
+    <Content Include="Resources\emoticon_waii.png" />
+    <Content Include="Resources\export.png" />
+    <Content Include="Resources\folder_page.png" />
+    <Content Include="Resources\house.png" />
+    <Content Include="Resources\house_edit.png" />
+    <Content Include="Resources\link.png" />
+    <Content Include="Resources\link_add.png" />
+    <Content Include="Resources\link_delete.png" />
+    <Content Include="Resources\link_go.png" />
+    <Content Include="Resources\medal_gold_add.png" />
+    <Content Include="Resources\note_edit.png" />
+    <Content Include="Resources\page.png" />
+    <Content Include="Resources\page_copy.png" />
+    <Content Include="Resources\page_paste.png" />
+    <Content Include="Resources\pencil.png" />
+    <Content Include="Resources\plugin_add.png" />
+    <Content Include="Resources\possessinanimate.png" />
+    <Content Include="Resources\possession.png" />
+    <Content Include="Resources\printer.png" />
+    <Content Include="Resources\server_lightning.png" />
+    <Content Include="Resources\shield_add.png" />
+    <Content Include="Resources\table_edit.png" />
+    <Content Include="Resources\tag_red.png" />
+    <Content Include="Resources\user_add.png" />
+    <Content Include="Resources\user_go.png" />
+    <Content Include="Resources\world_go.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
