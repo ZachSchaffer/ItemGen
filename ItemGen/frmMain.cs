@@ -133,229 +133,248 @@ namespace ItemGen
                 switch (item.itemType)
                 {
                     case Item.ItemType.Armor:
-                    {
-                        var item = (Armor) this.item;
-                        slbl1.Text = "Armor Rating";
-                        slbl1.Visible = true;
-                        sbox1.Visible = true;
-                        sbox1.Text = item.ArmorRating.ToString();
+                        {
+                            var item = (Armor)this.item;
+                            slbl1.Text = "Armor Rating";
+                            slbl1.Visible = true;
+                            sbox1.Visible = true;
+                            sbox1.Text = item.ArmorRating.ToString();
 
-                        slbl2.Text = "Capacity";
-                        slbl2.Visible = true;
-                        sbox2.Visible = true;
-                        sbox2.Text = item.Capacity.ToString();
+                            slbl2.Text = "Capacity";
+                            slbl2.Visible = true;
+                            sbox2.Visible = true;
+                            sbox2.Text = item.Capacity.ToString();
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case Item.ItemType.Weapon:
-                    {
-                        var item = (Weapon) this.item;
-                        sdrop1.Visible = true;
-                        sdrop1.DataSource = new[]
-                            {"Pistol", "SMG", "Assault Rifle", "Sniper Rifle", "Shotgun", "Blade", "Blunt", "Special"};
-                        sdrop1.Text = item.SubCategory;
+                        {
+                            var item = (Weapon)this.item;
+                            sdrop1.Visible = true;
+                            sdrop1.DataSource = new[]
+                                {"Pistol", "SMG", "Assault Rifle", "Sniper Rifle", "Shotgun", "Blade", "Blunt", "Special"};
+                            sdrop1.Text = item.SubCategory;
 
-                        slbl1.Text = "Accuracy";
-                        slbl1.Visible = true;
-                        sbox1.Visible = true;
-                        sbox1.Text = item.Accuracy.ToString();
+                            slbl1.Text = "Accuracy";
+                            slbl1.Visible = true;
+                            sbox1.Visible = true;
+                            sbox1.Text = item.Accuracy.ToString();
 
-                        slbl2.Text = "Damage Value";
-                        slbl2.Visible = true;
-                        sbox2.Visible = true;
-                        sbox2.Text = item.DamageValue.ToString();
+                            slbl2.Text = "Damage Value";
+                            slbl2.Visible = true;
+                            sbox2.Visible = true;
+                            sbox2.Text = item.DamageValue.ToString();
 
-                        slbl3.Text = "Armor Pen";
-                        slbl3.Visible = true;
-                        sbox3.Visible = true;
-                        sbox3.Text = item.ArmorPen.ToString();
+                            slbl3.Text = "Armor Pen";
+                            slbl3.Visible = true;
+                            sbox3.Visible = true;
+                            sbox3.Text = item.ArmorPen.ToString();
 
-                        sdrop2.Visible = true;
-                        slbl7.Visible = true;
-                        slbl8.Text = "Fire Mode";
-                        sdrop2.DataSource = new[] {"Single", "Semi Auto", "Full Auto", "Burst"};
-                        sdrop2.Text = item.FireMode;
+                            sdrop2.Visible = true;
+                            slbl7.Visible = true;
+                            slbl8.Text = "Fire Mode";
+                            sdrop2.DataSource = new[] { "Single", "Semi Auto", "Full Auto", "Burst" };
+                            sdrop2.Text = item.FireMode;
 
-                        slbl4.Text = "Recoil Comp";
-                        slbl4.Visible = true;
-                        sbox4.Visible = true;
-                        sbox4.Text = item.RecoilCompensation.ToString();
+                            slbl4.Text = "Recoil Comp";
+                            slbl4.Visible = true;
+                            sbox4.Visible = true;
+                            sbox4.Text = item.RecoilCompensation.ToString();
 
-                        slbl5.Text = "Ammo Capacity";
-                        slbl5.Visible = true;
-                        sbox5.Visible = true;
-                        sbox5.Text = item.AmmoCapacity.ToString();
+                            slbl5.Text = "Ammo Capacity";
+                            slbl5.Visible = true;
+                            sbox5.Visible = true;
+                            sbox5.Text = item.AmmoCapacity.ToString();
 
 
-                        ModSlotsBox.Visible = true;
-                        slbl7.Text = "Subcategory";
-                        slbl8.Visible = true;
+                            ModSlotsBox.Visible = true;
+                            slbl7.Text = "Subcategory";
+                            slbl8.Visible = true;
 
-                        checkBox1.Checked = item.Modslots[0];
-                        checkBox2.Checked = item.Modslots[1];
-                        checkBox3.Checked = item.Modslots[2];
-                        checkBox4.Checked = item.Modslots[3];
-                        checkBox5.Checked = item.Modslots[4];
-                        checkBox6.Checked = item.Modslots[5];
+                            checkBox1.Checked = item.Modslots[0];
+                            checkBox2.Checked = item.Modslots[1];
+                            checkBox3.Checked = item.Modslots[2];
+                            checkBox4.Checked = item.Modslots[3];
+                            checkBox5.Checked = item.Modslots[4];
+                            checkBox6.Checked = item.Modslots[5];
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case Item.ItemType.Ammunition:
-                    {
-                        var item = (Ammunition) this.item;
-                        sdrop1.Visible = true;
-                        slbl7.Text = "Subcategory";
-                        slbl7.Visible = true;
-                        sdrop1.DataSource = new[]
-                            {"Pistol", "SMG", "Assault Rifle", "Sniper Rifle", "Shotgun", "Blade", "Blunt", "Special"};
-                        sdrop1.Text = item.SubCategory;
+                        {
+                            var item = (Ammunition)this.item;
+                            sdrop1.Visible = true;
+                            slbl7.Text = "Subcategory";
+                            slbl7.Visible = true;
+                            sdrop1.DataSource = new[]
+                                {"Pistol", "SMG", "Assault Rifle", "Sniper Rifle", "Shotgun", "Blade", "Blunt", "Special"};
+                            sdrop1.Text = item.SubCategory;
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case Item.ItemType.Cyberware:
-                    {
-                        var item = (Cyberware) this.item;
-                        sdrop1.Visible = true;
-                        slbl7.Visible = true;
-                        slbl7.Text = "Grade";
-                        sdrop1.DataSource = new[]
                         {
+                            var item = (Cyberware)this.item;
+                            sdrop1.Visible = true;
+                            slbl7.Visible = true;
+                            slbl7.Text = "Grade";
+                            sdrop1.DataSource = new[]
+                            {
                             "Standard", "Used", "Alphaware", "Betaware", "Omegaware", "Deltaware"
                         };
-                        sdrop1.Text = item.Grade;
+                            sdrop1.Text = item.Grade;
 
-                        slbl1.Text = "Agility";
-                        slbl1.Visible = true;
-                        sbox1.Visible = true;
-                        sbox1.Text = item.Agility.ToString();
+                            slbl1.Text = "Agility";
+                            slbl1.Visible = true;
+                            sbox1.Visible = true;
+                            sbox1.Text = item.Agility.ToString();
 
-                        slbl2.Text = "Strength";
-                        slbl2.Visible = true;
-                        sbox2.Visible = true;
-                        sbox2.Text = item.Strength.ToString();
+                            slbl2.Text = "Strength";
+                            slbl2.Visible = true;
+                            sbox2.Visible = true;
+                            sbox2.Text = item.Strength.ToString();
 
-                        slbl3.Text = "Capacity";
-                        slbl3.Visible = true;
-                        sbox3.Visible = true;
-                        sbox3.Text = item.Capacity.ToString();
+                            slbl3.Text = "Capacity";
+                            slbl3.Visible = true;
+                            sbox3.Visible = true;
+                            sbox3.Text = item.Capacity.ToString();
 
-                        sdrop2.Visible = true;
-                        sdrop2.Text = item.Category;
-                        slbl8.Text = "Subcategory";
-                        slbl8.Visible = true;
-                        sdrop2.DataSource = new[]
-                        {
+                            sdrop2.Visible = true;
+                            sdrop2.Text = item.Category;
+                            slbl8.Text = "Subcategory";
+                            slbl8.Visible = true;
+                            sdrop2.DataSource = new[]
+                            {
                             "Cyberlimb", "Bodyware", "Cosmetic", "Cyberlimb Enhancement", "Earware", "Eyeware",
                             "Implanted Weapon", "Headware", "Nanocybernetics"
                         };
 
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case Item.ItemType.Bioware:
-                    {
-                        var item = (Bioware) this.item;
-                        sdrop1.Visible = true;
-                        slbl7.Text = "Grade";
-                        slbl7.Visible = true;
-                        sdrop1.DataSource = new[]
                         {
+                            var item = (Bioware)this.item;
+                            sdrop1.Visible = true;
+                            slbl7.Text = "Grade";
+                            slbl7.Visible = true;
+                            sdrop1.DataSource = new[]
+                            {
                             "Standard", "Used", "Alphaware", "Betaware", "Omegaware", "Deltaware"
                         };
-                        sdrop1.Text = item.Grade;
+                            sdrop1.Text = item.Grade;
 
-                        sdrop2.Visible = true;
-                        slbl8.Text = "Subcategory";
-                        slbl8.Visible = true;
-                        sdrop1.DataSource = new[]
-                        {
+                            sdrop2.Visible = true;
+                            slbl8.Text = "Subcategory";
+                            slbl8.Visible = true;
+                            sdrop1.DataSource = new[]
+                            {
                             "Basic", "Bioweapon", "Cosmetic", "Cultured", "Gene Mods"
                         };
-                        sdrop2.Text = item.Category;
+                            sdrop2.Text = item.Category;
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case Item.ItemType.Vehicle:
-                    {
-                        var item = (Vehicle) this.item;
+                        {
+                            var item = (Vehicle)this.item;
 
-                        slbl1.Text = "Body";
-                        slbl1.Visible = true;
-                        sbox1.Visible = true;
-                        sbox1.Text = item.Body.ToString();
+                            slbl1.Text = "Body";
+                            slbl1.Visible = true;
+                            sbox1.Visible = true;
+                            sbox1.Text = item.Body.ToString();
 
-                        slbl2.Text = "Speed";
-                        slbl2.Visible = true;
-                        sbox2.Visible = true;
-                        sbox2.Text = item.Speed.ToString();
+                            slbl2.Text = "Speed";
+                            slbl2.Visible = true;
+                            sbox2.Visible = true;
+                            sbox2.Text = item.Speed.ToString();
 
-                        slbl3.Text = "Handling";
-                        slbl3.Visible = true;
-                        sbox3.Visible = true;
-                        sbox3.Text = item.Handling.ToString();
+                            slbl3.Text = "Handling";
+                            slbl3.Visible = true;
+                            sbox3.Visible = true;
+                            sbox3.Text = item.Handling.ToString();
 
-                        slbl4.Text = "Armor";
-                        slbl4.Visible = true;
-                        sbox4.Visible = true;
-                        sbox4.Text = item.Armor.ToString();
+                            slbl4.Text = "Armor";
+                            slbl4.Visible = true;
+                            sbox4.Visible = true;
+                            sbox4.Text = item.Armor.ToString();
 
-                        slbl5.Text = "Seats";
-                        slbl5.Visible = true;
-                        sbox5.Visible = true;
-                        sbox5.Text = item.Seats.ToString();
+                            slbl5.Text = "Seats";
+                            slbl5.Visible = true;
+                            sbox5.Visible = true;
+                            sbox5.Text = item.Seats.ToString();
 
-                        slbl6.Text = "Upgrade Capacity";
-                        slbl6.Visible = true;
-                        sbox6.Visible = true;
-                        sbox6.Text = item.UpCap.ToString();
+                            slbl6.Text = "Upgrade Capacity";
+                            slbl6.Visible = true;
+                            sbox6.Visible = true;
+                            sbox6.Text = item.UpCap.ToString();
 
-                        break;
-                    }
+                            break;
+                        }
 
                     case Item.ItemType.Cyberdeck:
+                        {
+                            var item = (Cyberdeck)this.item;
+
+                            slbl1.Text = "Firewall";
+                            slbl1.Visible = true;
+                            sbox1.Visible = true;
+                            sbox1.Text = item.Firewall.ToString();
+
+                            slbl2.Text = "Drone Limit";
+                            slbl2.Visible = true;
+                            sbox2.Visible = true;
+                            sbox2.Text = item.ProgramLimit.ToString();
+                            break;
+                        }
+
+                    case Item.ItemType.Explosives:
+                        {
+                            var item = (Explosives)this.item;
+
+                            slbl1.Text = "AoE";
+                            slbl1.Visible = true;
+                            sbox1.Visible = true;
+                            sbox2.Text = item.Area.ToString();
+
+                            slbl2.Text = "Damage Value";
+                            slbl2.Visible = true;
+                            sbox2.Visible = true;
+                            sbox2.Text = item.Dv.ToString();
+
+                            break;
+                        }
+
+                    case Item.ItemType.Equipment:
+                        {
+                            var item = (Explosives)this.item;
+                            SpecialPropertiesBox.Visible = true;
+                            break;
+                        }
+
+                    case Item.ItemType.DroneMaster:
                     {
-                        var item = (Cyberdeck) this.item;
+                        var item = (Drone) this.item;
 
                         slbl1.Text = "Firewall";
                         slbl1.Visible = true;
                         sbox1.Visible = true;
-                        sbox1.Text = item.Firewall.ToString();
+                        sbox2.Text = item.Firewall.ToString();
 
                         slbl2.Text = "Drone Limit";
                         slbl2.Visible = true;
                         sbox2.Visible = true;
-                        sbox2.Text = item.ProgramLimit.ToString();
+                        sbox2.Text = item.DroneLimit.ToString();
                         break;
                     }
-
-                    case Item.ItemType.Explosives:
-                    {
-                        var item = (Explosives) this.item;
-
-                        slbl1.Text = "AoE";
-                        slbl1.Visible = true;
-                        sbox1.Visible = true;
-                        sbox2.Text = item.Area.ToString();
-
-                        slbl2.Text = "Damage Value";
-                        slbl2.Visible = true;
-                        sbox2.Visible = true;
-                        sbox2.Text = item.Dv.ToString();
-
+                        
+                    case Item.ItemType.Misc:
                         break;
-                    }
-
-                    case Item.ItemType.Equipment:
-                    {
-                        var item = (Explosives) this.item;
-                        SpecialPropertiesBox.Visible = true;
-                        break;
-                    }
                 }
             }
         }
