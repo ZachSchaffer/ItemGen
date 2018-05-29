@@ -1,6 +1,6 @@
 ﻿namespace ItemGen
 {
-    partial class FormSelectItemType
+    partial class frmSelectItemType
     {
         /// <summary>
         /// Required designer variable.

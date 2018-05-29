@@ -27,8 +27,8 @@ namespace ItemGen
             //Start Doc
             objWriter.WriteStartDocument();
 
-            objWriter.WriteStartElement("item");
-            objWriter.WriteStartElement("Equipment");
+            objWriter.WriteStartElement("Item");
+            objWriter.WriteElementString("Type", "Equipment");
 
             //Write Universal item Info
 
@@ -38,18 +38,37 @@ namespace ItemGen
             //objWriter.WriteElementString("Picture", picture); TODO: Picture
             objWriter.WriteElementString("Availability", Avail.ToString());
             objWriter.WriteElementString("Cost", Cost.ToString());
-            objWriter.WriteElementString("Device Rating", DeviceRating.ToString());
-            objWriter.WriteElementString("Wegiht", Weight.ToString());
-
-            //Write Equipment Info
-            objWriter.WriteElementString("WeightMod", WeightMod.ToString());
+            objWriter.WriteElementString("DeviceRating", DeviceRating.ToString());
+            objWriter.WriteElementString("Weight", Weight.ToString());
 
             //End Doc
-            objWriter.WriteEndElement();
             objWriter.WriteEndElement();
             objWriter.WriteEndDocument();
             objWriter.Close();
             objStream.Close();
+
+        }
+
+        public override void Load()
+        {
+            var objXmlDocument = new XmlDocument();
+            objXmlDocument.Load(FileName);
+            var objXmlItem = objXmlDocument.SelectSingleNode("/Item");
+
+            //Load Universal Item Info
+            objXmlItem.ReadString("Name", ref Name);
+            objXmlItem.ReadString("Description", ref Description);
+            objXmlItem.ReadString("Rules", ref Rules);
+            objXmlItem.ReadString("Availability", ref Avail);
+            objXmlItem.ReadInt("Cost", ref Cost);
+            objXmlItem.ReadInt("DeviceRating", ref DeviceRating);
+            objXmlItem.ReadInt("Weight", ref Weight);
+
+            //Load Cyberdeck Info
+            this.itemType = ItemType.Equipment;
+
+
+
 
         }
     }

@@ -10,11 +10,11 @@ using System.Windows.Forms;
 
 namespace ItemGen
 {
-    public partial class FormSelectItemType : Form
+    public partial class frmSelectItemType : Form
     {
         public Item ReturnItem;
 
-        public FormSelectItemType()
+        public frmSelectItemType()
         {
             InitializeComponent();
         }
@@ -56,12 +56,12 @@ namespace ItemGen
                 }
                 case 5:
                 {
-                    this.ReturnItem = new Vehicle();
+                    this.ReturnItem = new Bioware();
                     break;
                 }
                 case 6:
                 {
-                    this.ReturnItem = new Cyberdeck();
+                    this.ReturnItem = new Vehicle();
                     break;
                 }
                 case 7:
@@ -76,9 +76,10 @@ namespace ItemGen
                 }
                 case 9:
                 {
-                    this.ReturnItem = new Item();
+                    this.ReturnItem = new Item(Item.ItemType.Misc);
                     break;
                 }
+
                 default:
                     break;
             }

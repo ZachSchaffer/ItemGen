@@ -9,7 +9,6 @@ namespace ItemGen
     {
         public int Area = 0;
         public int Dv = 0;
-        public bool Throwable = false;
 
         public Explosives()
         {
@@ -29,8 +28,8 @@ namespace ItemGen
             //Start Doc
             objWriter.WriteStartDocument();
 
-            objWriter.WriteStartElement("item");
-            objWriter.WriteStartElement("Explosives");
+            objWriter.WriteStartElement("Item");
+            objWriter.WriteElementString("Type", "Explosives");
 
             //Write Universal item Info
 
@@ -40,21 +39,43 @@ namespace ItemGen
             //objWriter.WriteElementString("Picture", picture); TODO: Picture
             objWriter.WriteElementString("Availability", Avail.ToString());
             objWriter.WriteElementString("Cost", Cost.ToString());
-            objWriter.WriteElementString("Device Rating", DeviceRating.ToString());
-            objWriter.WriteElementString("Wegiht", Weight.ToString());
+            objWriter.WriteElementString("DeviceRating", DeviceRating.ToString());
+            objWriter.WriteElementString("Weight", Weight.ToString());
 
 
             //Write Explosives Info 
             objWriter.WriteStartElement("Area", Area.ToString());
             objWriter.WriteStartElement("DV", Dv.ToString());
-            objWriter.WriteStartElement("Throwable", Throwable.ToString());
 
             //End Doc
-            objWriter.WriteEndElement();
             objWriter.WriteEndElement();
             objWriter.WriteEndDocument();
             objWriter.Close();
             objStream.Close();
+
+        }
+
+        public override void Load()
+        {
+            var objXmlDocument = new XmlDocument();
+            objXmlDocument.Load(FileName);
+            var objXmlItem = objXmlDocument.SelectSingleNode("/Item");
+
+            //Load Universal Item Info
+            objXmlItem.ReadString("Name", ref Name);
+            objXmlItem.ReadString("Description", ref Description);
+            objXmlItem.ReadString("Rules", ref Rules);
+            objXmlItem.ReadString("Availability", ref Avail);
+            objXmlItem.ReadInt("Cost", ref Cost);
+            objXmlItem.ReadInt("DeviceRating", ref DeviceRating);
+            objXmlItem.ReadInt("Weight", ref Weight);
+
+            //Load Explosives Info
+            this.itemType = ItemType.Explosives;
+            objXmlItem.ReadInt("Area", ref Area);
+            objXmlItem.ReadInt("DV", ref Dv);
+
+
 
         }
 

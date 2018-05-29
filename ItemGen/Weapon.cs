@@ -1,32 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.IO;
 using System.Text;
-using System.Windows.Forms.VisualStyles;
 using System.Xml;
 
 namespace ItemGen
 {
     internal class Weapon : Item
     {
-        public String SubCategory = "UNINITIALIZED";
-        public int Accuracy = 0;
-        public int DamageValue = 0;
-        public int ArmorPen = 0;
-        public string FireMode = "UNINITIALIZED";
-        public int RecoilCompensation = 0;
-        public int AmmoCapacity = 0;
-        public List<string> ModSlots = new List<string>();
+        public int Accuracy;
+        public int AmmoCapacity;
+        public int ArmorPen;
+        public int DamageValue;
+        public string FireMode = "None";
+        public bool[] Modslots = {false, false, false, false, false, false};
+        public int RecoilCompensation;
+        public string SubCategory = "None";
 
         public Weapon()
         {
-            this.itemType = ItemType.Weapon;
+            itemType = ItemType.Weapon;
         }
 
         public override void Save()
         {
-            FileStream objStream = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
-            XmlTextWriter objWriter = new XmlTextWriter(objStream, Encoding.UTF8)
+            var objStream = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+            var objWriter = new XmlTextWriter(objStream, Encoding.UTF8)
             {
                 Formatting = Formatting.Indented,
                 Indentation = 1,
@@ -36,8 +33,8 @@ namespace ItemGen
             //Start Doc
             objWriter.WriteStartDocument();
 
-            objWriter.WriteStartElement("item");
-            objWriter.WriteStartElement("Weapon");
+            objWriter.WriteStartElement("Item");
+            objWriter.WriteElementString("Type", "Weapon");
 
             //Write Universal item Info
 
@@ -45,13 +42,13 @@ namespace ItemGen
             objWriter.WriteElementString("Description", Description);
             objWriter.WriteElementString("Rules", Rules);
             //objWriter.WriteElementString("Picture", picture); TODO: Picture
-            objWriter.WriteElementString("Availability", Avail.ToString());
+            objWriter.WriteElementString("Availability", Avail);
             objWriter.WriteElementString("Cost", Cost.ToString());
-            objWriter.WriteElementString("Device Rating", DeviceRating.ToString());
-            objWriter.WriteElementString("Wegiht", Weight.ToString());
+            objWriter.WriteElementString("DeviceRating", DeviceRating.ToString());
+            objWriter.WriteElementString("Weight", Weight.ToString());
 
-    
-            //Write Weapon Info TODO
+
+            //Write Weapon Info 
             objWriter.WriteElementString("SubCategory", SubCategory);
             objWriter.WriteElementString("Accuracy", Accuracy.ToString());
             objWriter.WriteElementString("DamageValue", DamageValue.ToString());
@@ -63,19 +60,58 @@ namespace ItemGen
             //Write ModSlots
             objWriter.WriteStartElement("ModSlots");
 
-            foreach (String s in ModSlots)
-                objWriter.WriteElementString("Mod Slot", s);
+            objWriter.WriteElementString(Modslots[0] ? "Enabled" : "Disabled", "Stock");
+            objWriter.WriteElementString(Modslots[1] ? "Enabled" : "Disabled", "Side");
+            objWriter.WriteElementString(Modslots[2] ? "Enabled" : "Disabled", "Barrel");
+            objWriter.WriteElementString(Modslots[3] ? "Enabled" : "Disabled", "Top");
+            objWriter.WriteElementString(Modslots[4] ? "Enabled" : "Disabled", "Under");
+            objWriter.WriteElementString(Modslots[5] ? "Enabled" : "Disabled", "Misc");
 
             objWriter.WriteEndElement();
 
 
             //End Doc
             objWriter.WriteEndElement();
-            objWriter.WriteEndElement();
             objWriter.WriteEndDocument();
             objWriter.Close();
             objStream.Close();
+        }
 
+        public override void Load()
+        {
+            var objXmlDocument = new XmlDocument();
+            objXmlDocument.Load(FileName);
+            var objXmlItem = objXmlDocument.SelectSingleNode("/Item");
+
+            //Load Universal Item Info
+            objXmlItem.ReadString("Name", ref Name);
+            objXmlItem.ReadString("Description", ref Description);
+            objXmlItem.ReadString("Rules", ref Rules);
+            objXmlItem.ReadString("Availability", ref Avail);
+            objXmlItem.ReadInt("Cost", ref Cost);
+            objXmlItem.ReadInt("DeviceRating", ref DeviceRating);
+            objXmlItem.ReadInt("Weight", ref Weight);
+
+            //Load Weapon Info
+            itemType = ItemType.Weapon;
+            objXmlItem.ReadString("SubCategory", ref SubCategory);
+            objXmlItem.ReadInt("Accuracy", ref Accuracy);
+            objXmlItem.ReadInt("DamageValue", ref DamageValue);
+            objXmlItem.ReadInt("ArmorPen", ref ArmorPen);
+            objXmlItem.ReadInt("RecoilCompensation", ref RecoilCompensation);
+            objXmlItem.ReadInt("AmmoCapacity", ref AmmoCapacity);
+            objXmlItem.ReadString("FireModes", ref FireMode);
+
+            foreach (XmlElement i in objXmlItem.SelectSingleNode("ModSlots"))
+                if (i.OuterXml.Contains("Enabled"))
+                {
+                    if (i.InnerText.Equals("Stock")) Modslots[0] = true;
+                    if (i.InnerText.Equals("Side")) Modslots[1] = true;
+                    if (i.InnerText.Equals("Barrel")) Modslots[2] = true;
+                    if (i.InnerText.Equals("Top")) Modslots[3] = true;
+                    if (i.InnerText.Equals("Under")) Modslots[4] = true;
+                    if (i.InnerText.Equals("Misc")) Modslots[5] = true;
+                }
         }
     }
 }
