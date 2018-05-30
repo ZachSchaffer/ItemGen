@@ -386,7 +386,7 @@ namespace ItemGen
             if (!string.IsNullOrEmpty(boxDesc.Text)) item.Description = boxDesc.Text;
             if (!string.IsNullOrEmpty(boxDR.Text)) item.DeviceRating = int.Parse(boxDR.Text);
             if (!string.IsNullOrEmpty(boxRules.Text)) item.Rules = boxRules.Text;
-            if (!string.IsNullOrEmpty(boxWeight.Text)) item.Weight = int.Parse(boxWeight.Text);
+            if (!string.IsNullOrEmpty(boxWeight.Text)) item.Weight = double.Parse(boxWeight.Text);
             if (!string.IsNullOrEmpty(boxName.Text)) item.Name = boxName.Text;
 
             switch (item.itemType)

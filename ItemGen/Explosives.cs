@@ -68,7 +68,7 @@ namespace ItemGen
             objXmlItem.ReadString("Availability", ref Avail);
             objXmlItem.ReadInt("Cost", ref Cost);
             objXmlItem.ReadInt("DeviceRating", ref DeviceRating);
-            objXmlItem.ReadInt("Weight", ref Weight);
+            objXmlItem.ReadDouble("Weight", ref Weight);
 
             //Load Explosives Info
             this.itemType = ItemType.Explosives;

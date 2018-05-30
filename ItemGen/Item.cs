@@ -90,7 +90,7 @@ namespace ItemGen
             objXmlItem.ReadString("Availability", ref Avail);
             objXmlItem.ReadInt("Cost", ref Cost);
             objXmlItem.ReadInt("DeviceRating", ref DeviceRating);
-            objXmlItem.ReadInt("Weight", ref Weight);
+            objXmlItem.ReadDouble("Weight", ref Weight);
         }
 
         #region item Properties
@@ -105,7 +105,7 @@ namespace ItemGen
 
         public int Cost;
         public int DeviceRating;
-        public int Weight;
+        public double Weight;
 
         #endregion
     }
