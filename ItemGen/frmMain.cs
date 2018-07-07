@@ -56,6 +56,21 @@ namespace ItemGen
                     case Item.ItemType.Explosives:
                         filter = "Explosives Files (*.exp)|*.exp|All Files (*.*)|*.*";
                         break;
+                    case Item.ItemType.WeaponMod:
+                        filter = "WeaponMod Files (*.wepmod)|*.wepmod|All Files (*.*)|*.*";
+                        break;
+                    case Item.ItemType.Program:
+                        filter = "Program Files (*.prog)|*.prog|All Files (*.*)|*.*";
+                        break;
+                    case Item.ItemType.CyberMod:
+                        filter = "Cyberware Mod Files (*.cybermod)|*.cybermod|All Files (*.*)|*.*";
+                        break;
+                    case Item.ItemType.VehicleMod:
+                        filter = "Vehicle Mod Files (*.vmod)|*.vmod|All Files (*.*)|*.*";
+                        break;
+                    case Item.ItemType.Drug:
+                        filter = "Drug Files (*.drug)|*.drug|All Files (*.*)|*.*";
+                        break;
                     case Item.ItemType.Misc:
                         break;
                     default:
@@ -98,10 +113,6 @@ namespace ItemGen
         }
 
         private void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
         {
         }
 
@@ -373,6 +384,39 @@ namespace ItemGen
                         break;
                     }
 
+                    case Item.ItemType.WeaponMod:
+                    {
+                        var item = (WeaponMod)this.item;
+                        sdrop1.Visible = true;
+                        slbl7.Text = "Mod Slot";
+                        slbl7.Visible = true;
+                        sdrop1.DataSource = new[]
+                            {"Pistol", "SMG", "Assault Rifle", "Sniper Rifle", "Shotgun", "Blade", "Blunt", "Special"};
+                        sdrop1.Text = item.slot;
+
+                        break;
+                    }
+                    /*case Item.ItemType.Program:
+                    {
+                        var item = (Programs)this.item;
+                        break;
+                    }
+                    case Item.ItemType.CyberMod:
+                    {
+                        var item = (CyberMod)this.item;
+                        break;
+                    }
+                    case Item.ItemType.VehicleMod:
+                    {
+                        var item = (VehicleMod)this.item;
+                        break;
+                    }
+                    case Item.ItemType.Drug:
+                    {
+                        var item = (Drug)this.item;
+                        break;
+                    }*/
+
                     case Item.ItemType.Misc:
                         break;
                 }
@@ -492,6 +536,12 @@ namespace ItemGen
                     if (!string.IsNullOrEmpty(sbox2.Text)) item.DroneLimit = int.Parse(sbox2.Text);
                         break;
                 }
+                case Item.ItemType.WeaponMod:
+                {
+                    var item = (WeaponMod)this.item;
+                    if (!string.IsNullOrEmpty(sdrop1.Text)) item.slot = sdrop1.Text;
+                    break;
+                }
 
                 case Item.ItemType.Misc:
                     break;
@@ -584,6 +634,37 @@ namespace ItemGen
                     item.FileName = fileName;
                     item.Load();
                 }
+                if (fileName.EndsWith(".wepmod"))
+                {
+                    item = new WeaponMod();
+                    item.FileName = fileName;
+                    item.Load();
+                }
+                if (fileName.EndsWith(".prog"))
+                {
+                    item = new Programs();
+                    item.FileName = fileName;
+                    item.Load();
+                }
+                if (fileName.EndsWith(".cybermod"))
+                {
+                    item = new CyberMod();
+                    item.FileName = fileName;
+                    item.Load();
+                }
+                if (fileName.EndsWith(".vmod"))
+                {
+                    item = new VehicleMod();
+                    item.FileName = fileName;
+                    item.Load();
+                }
+                if (fileName.EndsWith(".drug"))
+                {
+                    item = new Drug();
+                    item.FileName = fileName;
+                    item.Load();
+                }
+
 
                 UpdateUi();
             }

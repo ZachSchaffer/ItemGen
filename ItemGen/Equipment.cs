@@ -41,6 +41,9 @@ namespace ItemGen
             objWriter.WriteElementString("DeviceRating", DeviceRating.ToString());
             objWriter.WriteElementString("Weight", Weight.ToString());
 
+            //Write specific info
+            objWriter.WriteElementString("WeightMod", WeightMod.ToString());
+
             //End Doc
             objWriter.WriteEndElement();
             objWriter.WriteEndDocument();
@@ -65,10 +68,8 @@ namespace ItemGen
             objXmlItem.ReadDouble("Weight", ref Weight);
 
             //Load Cyberdeck Info
+            objXmlItem.ReadInt("WeightMod", ref WeightMod);
             this.itemType = ItemType.Equipment;
-
-
-
 
         }
     }

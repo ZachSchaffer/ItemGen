@@ -5,67 +5,17 @@ using System.Xml;
 
 namespace ItemGen
 {
-    public class Item
+    internal class VehicleMod : Item
     {
-        public enum ItemType
+        public VehicleMod()
         {
-            Armor,
-            Weapon,
-            Equipment,
-            Ammunition,
-            Cyberware,
-            Bioware,
-            Vehicle,
-            Cyberdeck,
-            DroneMaster,
-            Explosives,
-            WeaponMod,
-            Program,
-            CyberMod,
-            VehicleMod,
-            Drug,
-            Misc
+            this.itemType = ItemType.VehicleMod;
         }
 
-        #region item Properties
-
-        public string Name = "None";
-        public string Description = "None";
-
-        public string Rules = "None";
-
-        //TODO: Picture link
-        public string Avail = "None";
-
-        public int Cost;
-        public int DeviceRating;
-        public double Weight;
-
-        #endregion
-
-        public string FileName = string.Empty;
-
-        public ItemType itemType;
-
-        public Item(ItemType itemType)
+        public override void Save()
         {
-            this.itemType = itemType;
-        }
-
-        public Item()
-        {
-        }
-
-        public Array GetTypes() //Return an Array of all possible types from the enum itemType
-        {
-            var values = Enum.GetValues(typeof(ItemType));
-            return values;
-        }
-
-        public virtual void Save()
-        {
-            var objStream = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
-            var objWriter = new XmlTextWriter(objStream, Encoding.UTF8)
+            FileStream objStream = new FileStream(FileName, FileMode.Create, FileAccess.Write, FileShare.ReadWrite);
+            XmlTextWriter objWriter = new XmlTextWriter(objStream, Encoding.UTF8)
             {
                 Formatting = Formatting.Indented,
                 Indentation = 1,
@@ -75,7 +25,8 @@ namespace ItemGen
             //Start Doc
             objWriter.WriteStartDocument();
 
-            objWriter.WriteStartElement("item");
+            objWriter.WriteStartElement("Item");
+            objWriter.WriteElementString("Type", "VehicleMod");
 
             //Write Universal item Info
 
@@ -83,23 +34,21 @@ namespace ItemGen
             objWriter.WriteElementString("Description", Description);
             objWriter.WriteElementString("Rules", Rules);
             //objWriter.WriteElementString("Picture", picture); TODO: Picture
-            objWriter.WriteElementString("Availability", Avail);
+            objWriter.WriteElementString("Availability", Avail.ToString());
             objWriter.WriteElementString("Cost", Cost.ToString());
             objWriter.WriteElementString("DeviceRating", DeviceRating.ToString());
             objWriter.WriteElementString("Weight", Weight.ToString());
-
 
             //End Doc
             objWriter.WriteEndElement();
             objWriter.WriteEndDocument();
             objWriter.Close();
             objStream.Close();
+
         }
 
-
-        public virtual void Load()
+        public override void Load()
         {
-
             var objXmlDocument = new XmlDocument();
             objXmlDocument.Load(FileName);
             var objXmlItem = objXmlDocument.SelectSingleNode("/Item");
@@ -112,8 +61,7 @@ namespace ItemGen
             objXmlItem.ReadInt("Cost", ref Cost);
             objXmlItem.ReadInt("DeviceRating", ref DeviceRating);
             objXmlItem.ReadDouble("Weight", ref Weight);
+
         }
-
-
     }
 }

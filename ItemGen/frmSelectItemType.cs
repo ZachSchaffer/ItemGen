@@ -56,27 +56,52 @@ namespace ItemGen
                 }
                 case 5:
                 {
-                    this.ReturnItem = new Bioware();
+                    this.ReturnItem = new Cyberdeck();
                     break;
                 }
                 case 6:
                 {
-                    this.ReturnItem = new Vehicle();
+                    this.ReturnItem = new Bioware();
                     break;
                 }
                 case 7:
                 {
-                    this.ReturnItem = new Drone();
+                    this.ReturnItem = new Vehicle();
                     break;
                 }
                 case 8:
                 {
-                    this.ReturnItem = new Explosives();
+                    this.ReturnItem = new Drone();
                     break;
                 }
                 case 9:
                 {
-                    this.ReturnItem = new Item(Item.ItemType.Misc);
+                    this.ReturnItem = new Explosives();
+                    break;
+                }
+                case 10:
+                {
+                    this.ReturnItem = new WeaponMod();
+                    break;
+                }
+                case 11:
+                {
+                    this.ReturnItem = new Programs();
+                    break;
+                }
+                case 12:
+                {
+                    this.ReturnItem = new CyberMod();
+                    break;
+                }
+                case 13:
+                {
+                    this.ReturnItem = new VehicleMod();
+                    break;
+                }
+                case 14:
+                {
+                    this.ReturnItem = new Drug();
                     break;
                 }
 
@@ -87,5 +112,10 @@ namespace ItemGen
             this.DialogResult = DialogResult.OK;
 
             }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
+    }
     }

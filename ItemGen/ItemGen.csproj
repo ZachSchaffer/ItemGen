@@ -77,6 +77,11 @@
     <Compile Include="Ammunition.cs" />
     <Compile Include="Armor.cs" />
     <Compile Include="Bioware.cs" />
+    <Compile Include="CyberMod.cs" />
+    <Compile Include="Drug.cs" />
+    <Compile Include="WeaponMod.cs" />
+    <Compile Include="Programs.cs" />
+    <Compile Include="VehicleMod.cs" />
     <Compile Include="XmlTools.cs" />
     <Compile Include="Cyberdeck.cs" />
     <Compile Include="Cyberware.cs" />

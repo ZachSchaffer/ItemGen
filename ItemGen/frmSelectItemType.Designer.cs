@@ -39,7 +39,7 @@
             this.label1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Location = new System.Drawing.Point(94, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.Size = new System.Drawing.Size(121, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Please Select item Type";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -55,15 +55,22 @@
             "Equipment",
             "Ammunition",
             "Cyberware",
+            "Cyberdeck",
             "Bioware",
             "Vehicle",
             "Drone Master",
             "Explosive",
+            "Weapon Mod",
+            "Program",
+            "Cyberware Mod",
+            "Vehicle Mod",
+            "Drug",
             "Misc."});
             this.comboBox1.Location = new System.Drawing.Point(95, 44);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // button1
             // 
@@ -75,7 +82,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FormSelectItemType
+            // frmSelectItemType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -83,7 +90,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
-            this.Name = "FormSelectItemType";
+            this.Name = "frmSelectItemType";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Select item Type";
             this.ResumeLayout(false);
